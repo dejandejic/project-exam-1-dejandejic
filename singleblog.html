@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Spesefic information about a post">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style.css">
+    <title>Blog Page</title>
+    <style type="text/css">
+    .sl-prev,
+    .sl-next {
+        display: none !important;
+    }
+    </style>
+</head>
+
+<body>
+    <header> 
+        <a href="index.html" class="logo"><i class="fas fa-utensils"></i>BLOG</a>
+        <div id="hamburger" class="fas fa-bars"></div>
+        <nav class="navbar"> 
+            <a href="index.html">HOME</a> 
+            <a href="about.html">ABOUT</a> 
+            <a href="blogpage.html">LIST OF BLOG POSTS</a> 
+            <a href="#specific">BLOG POST SPESEFIC PAGE</a> 
+            <a href="contact.html">CONTACT</a> 
+        </nav>
+    </header>
+    <section class="single-latest-posts" id="single-latest-posts">
+        <div class="single-box-container" style="margin-top:150px;"></div>
+    </section>
+    <footer>
+        <div class="line"></div>
+        <div class="social-media"> <a href="#"><i class="fab fa-facebook"></i></a> <a href="#"><i class="fab fa-instagram"></i></a> <a href="#"><i class="fab fa-twitter"></i></a> </div>
+        <div class="footer-choice">
+            <div class="footer-nav">
+                <ul>
+                    <li><a class="nav-link" href="#">SOCIAL MEDIA</a></li>
+                </ul>
+            </div>
+            <div class="footer-nav">
+                <ul>
+                    <li><a class="nav-link" href="#">CONTACT US</a></li>
+                </ul>
+            </div>
+            <div class="footer-nav">
+                <ul>
+                    <li><a class="nav-link" href="#">REFER A FRIEND</a></li>
+                </ul>
+            </div>
+            <div class="footer-nav">
+                <ul>
+                    <li><a class="nav-link" href="#">TERMS OF SERVICE</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <script type="text/javascript">
+    async function singlePost() {
+        var urlParams = new URLSearchParams(window.location.search);
+        if(urlParams.has('id') == true) {
+            var id = urlParams.get('id');
+            var url = 'https://www.flowerpowerdejan.no/wp-json/wp/v2/posts/' + id
+            const postsContainer = document.querySelector(".single-box-container")
+            const response = await fetch(url);
+            const post = await response.json();
+            var content = post.content.rendered.replace(/<img[^>]*>/g, "");
+            var content = content.replace(/<[^>]*>?/gm, '');
+            var html = '';
+            html += `
+           <div class="blog-post">
+             <div class="post-image gallery"><img src=${post.images.medium}></div>
+             <h2><a href="/project-exam-dejandejic-main/singleblog.html?blog=fish">${post.title.rendered}</a></h2>
+              <h4>${content}</h4>
+           </div>`;
+            postsContainer.innerHTML += html
+         }
+    }
+    singlePost();
+    </script>
+</body>
+</html>

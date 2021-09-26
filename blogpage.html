@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="description" content="Get inspired by multiple blogs and start your own blog now!">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+      <link rel="stylesheet" href="css/style.css">
+      <title>Blog Page</title>
+      <style type="text/css">
+      </style>
+   </head>
+   <body>
+      <header>
+         <a href="index.html" class="logo"><i class="fas fa-utensils"></i>BLOG</a>
+         <div id="hamburger" class="fas fa-bars"></div>
+         <nav class="navbar" id="navbar">
+            <a href="index.html" class="nav-item">HOME</a>
+            <a href="about.html" class="nav-item">ABOUT</a>
+            <a href="blogpage.html" class="nav-item active">LIST OF BLOG POSTS</a>
+            <a href="#specific" class="nav-item">BLOG POST SPESEFIC PAGE</a>
+            <a href="contact.html" class="nav-item">CONTACT</a>
+        </nav>
+      </header>
+       <section class="food-blog">
+         <h1>Food Blog</h1>
+         <p>Lorem ipsum dolor sit amet, conssectetur adipiscing elit. Morbi dapibus eleifend dolor, nec maximus tellus aliquam ac. Praesent ultrices sollicitudin orci quis sodales. In auctor pharetra lorem sit amet fringilla. Proin dictum ligula massa, ac laoreet nisl ultrices sodales. Etiam vel egestas tortor. Quisque quis sem at est blandit dignissim eu id enim. </p>
+      </section>
+      <section class="latest-posts" id="latest-posts">
+         <h2 class="heading">Latest <span>Posts</span></h2>
+         <div class="box-container gallery"></div>
+         <input type="button" name="" value="Load More" id="load_more">
+      </section>
+      <div id="modal01" class="w3-modal" onclick="this.style.display='none'" style="padding-top:150px;">
+         <div class="w3-modal-content w3-animate-zoom">
+            <img id="img01" style="width:100%">
+         </div>
+      </div>
+      <footer>
+         <div class="line"></div>
+         <div class="social-media">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+         </div>
+         <div class="footer-choice">
+            <div class="footer-nav">
+               <ul>
+                  <li><a class="nav-link" href="#">SOCIAL MEDIA</a></li>
+               </ul>
+            </div>
+            <div class="footer-nav">
+               <ul>
+                  <li><a class="nav-link" href="#">CONTACT US</a></li>
+               </ul>
+            </div>
+            <div class="footer-nav">
+               <ul>
+                  <li><a class="nav-link" href="#">REFER A FRIEND</a></li>
+               </ul>
+            </div>
+            <div class="footer-nav">
+               <ul>
+                  <li><a class="nav-link" href="#">TERMS OF SERVICE</a></li>
+               </ul>
+            </div>
+         </div>
+       <div class="copyright">
+      <p>&#169; Copyright Food Blog 2021</p>
+      </div>
+      </footer>
+      <script src="js/index.js"></script>
+      <script src="js/blogpage.js"></script>
+      <script type="text/javascript">
+         function onClick(element) {
+           document.getElementById("img01").src = element.src;
+           document.getElementById("modal01").style.display = "block";
+          }
+      </script>
+   </body>
+   </html>
